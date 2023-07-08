@@ -4,6 +4,10 @@
 
 In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
 
+The purpose of the analysis is identify the creditworthiness of the loan borrowers applying Machine Learning.
+In order to do that, we have used a dataset of historical lending activity from a peer-to-peer lending services company to build the supervided learning model.
+The supervised learning model takes a set of known answers called labels (*healthy credit*/*risky credit*) and fit a model with a set of features (inputs, each attribute on the columns) that correspond to the labels. It required us to feed the correct answers to the model (`loan_status` column)
+The method applied was Logistic Regression, an statistical method for predcting binary outcomes from the data. In other words, we will classify the loans based on 
 * Explain the purpose of the analysis.
 * Explain what financial information the data was on, and what you needed to predict.
 * Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
