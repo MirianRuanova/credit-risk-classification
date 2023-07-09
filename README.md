@@ -2,11 +2,16 @@
 ## Overview of the Analysis
 
 The purpose of the analysis is to identify the creditworthiness of the loan borrowers applying Machine Learning.
+
 In order to do that, we have used a dataset of historical lending activity from a peer-to-peer lending services company to build the supervised learning model.
-The supervised learning model takes a set of known answers called labels (*healthy credit*/*risky credit*) and fits a model with a set of features (inputs, each attribute on the columns) that correspond to the labels. It required us to feed the correct answers to the model (`loan_status` column)
+
+The supervised learning model takes a set of known answers called labels (*healthy credit*/*risky credit*) and fits a model with a set of features (inputs, each attribute on the columns) that correspond to the labels. It required us to feed the correct answers to the model (`loan_status` column).
+
 The method applied was Logistic Regression, a statistical method for predicting binary outcomes from the data. In other words, instead of forecasting quantitative numbers, it classifies the type of loans using a binary (true positive/true negative) approach to predict membership in a category. 
 The goal of the algorithm is to estimate the probability that an instance belongs to a particular class. It assumes a linear relationship between the input features and the log odds of the target variable being in a specific class. The log odds are then transformed using the logistic function (sigmoid function) to obtain the predicted probabilities. 
+
 The stages of the machine learning process that have been addressed as part of the analysis are:
+
 1. Data Preparation:
 
   1.1 Separeta the data into y, the binary target variable, consisting of two classes denoted as 0 (healthy credit) and 1 (risky credit)..
@@ -93,7 +98,7 @@ However, after separating the data into two variables (y and X) and checking the
   2.2 Resampled Data:
 
     - For both the *Healthy Loan* and *High-Risk Loan* classes, the *precision*, *recall*, and *F1-score* are now *0.99*.
-    
+
     - Precision represents the ability of the model to correctly identify true positives, recall measures the model's ability to find all positive instances, and the F1-score is the harmonic mean of precision and recall. The higher the values, the better the model performs in terms of correctly identifying instances from both classes. 
 
 Finally, I would recommend the resampled model since it shows a significant improvement in the balanced accuracy score, precision, recall, and F1-scores for both classes compared to the original model. The improving the performance of the resampled model is due to addressing the class imbalance issue in the dataset which allows us to reach the perfect scores of 0.99 for both classes which indicates that the model trained on the resampled data is highly accurate and effective in predicting instances from both classes.
