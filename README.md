@@ -8,9 +8,13 @@ The method applied was Logistic Regression, a statistical method for predicting 
 The goal of the algorithm is to estimate the probability that an instance belongs to a particular class. It assumes a linear relationship between the input features and the log odds of the target variable being in a specific class. The log odds are then transformed using the logistic function (sigmoid function) to obtain the predicted probabilities. 
 The stages of the machine learning process that have been addressed as part of the analysis are:
 1. Data Preparation:
+
   1.1 Separeta the data into y, the binary target variable, consisting of two classes denoted as 0 (healthy credit) and 1 (risky credit)..
+
   1.2 X is crerated as the variable that contents the features used to train the machine learning models.These features provide important information about the loan applicants and their financial profiles. Specifically, the features include `loan_size`, `interest_rate`, `borrower_income`, `debt_to_income`, `num_of_accounts`, `derogatory_marks`, and `total_debts`. Each feature captures a specific aspect related to the borrower's creditworthiness.
+
 2. Model training: 
+
   2.1 The dataset is split into separate training and testing sets using the `train_test_split `function. This step ensures that the model is trained on a portion of the data and evaluated on unseen data.
 
     2.1.1 `X_train` represents the training set features, which are used to teach the model patterns and relationships.
@@ -24,11 +28,15 @@ The stages of the machine learning process that have been addressed as part of t
   2.2 The Logistic Regression model is instantiated. Logistic Regression is a statistical algorithm that estimates the parameters (coefficients) of a linear equation by maximizing the likelihood function or minimizing a cost function. In this case, it's used to predict the loan status based on the input features.
 
   2.3 After, it time to fit the model which means using the training data to estimate or learn the parameters of the chosen machine learning algorithm.The `.fit` function takes the input features (`X_train`) and corresponding target labels (`y_train)` as input and learns the underlying patterns or relationships between the input features and the target variable.
-  
+
 3. Prediction: 
+
   3.1 Once the model is trained and the coefficients are estimated, it can be used to make predictions on new, unseen data.
+
   3.2 For a given set of input features, the model calculates the log-odds (logistic function) of the target variable being in the positive class (risky credit).
-  3.3 The log-odds are transformed into probabilities using the logistic (sigmoid) function, which maps the range from negative infinity to positive infinity to the range between 0 and 1
+
+  3.3 The log-odds are transformed into probabilities using the logistic (sigmoid) function, which maps the range from negative infinity to positive infinity to the range between 0 and 1.
+
   3.4 Based on the threshold (usually 0.5),the predicted probability is classified as either 0 (healthy credit) or 1 (risky credit), corresponding to the predicted class.
 
 However, after separating the data into two variables (y and X) and checking the balance of the target values using the function `value_counts()`, it seems the total of *Healthy Loans* class (75,036) in the dataset is significantly higher than the *Hight Risk Loan* class (2,500). To address class imbalance in the dataset we used the `RandomOverSampler` technique.
@@ -67,16 +75,25 @@ However, after separating the data into two variables (y and X) and checking the
 ## Summary
 
 1. Balanced Accuracy Score:
+
   - Original Data: The *balanced accuracy score* was *0.9442676901753825*.
+
   - Resampled Data: The *balanced accuracy score* increased to *0.994180571103648*.
+
   The balanced accuracy score represents the overall accuracy considering the class imbalance. The higher the score, the better the model performs. In this case, the model trained on the resampled data achieves a much higher balanced accuracy score, indicating its improved ability to correctly classify instances from both classes.
 
 2. Precision, Recall, and F1-score:
+
   2.1 Original Data:
+
     - For the *Healthy Loan* class, the precision, recall, and F1-score were 1.
+
     - For the *High-Risk Loan* class, the *precision* was *0.87*, *recall* was *0.89*, and *F1-score* was *0.88*.
+
   2.2 Resampled Data:
+
     - For both the *Healthy Loan* and *High-Risk Loan* classes, the *precision*, *recall*, and *F1-score* are now *0.99*.
+    
     - Precision represents the ability of the model to correctly identify true positives, recall measures the model's ability to find all positive instances, and the F1-score is the harmonic mean of precision and recall. The higher the values, the better the model performs in terms of correctly identifying instances from both classes. 
 
 Finally, I would recommend the resampled model since it shows a significant improvement in the balanced accuracy score, precision, recall, and F1-scores for both classes compared to the original model. The improving the performance of the resampled model is due to addressing the class imbalance issue in the dataset which allows us to reach the perfect scores of 0.99 for both classes which indicates that the model trained on the resampled data is highly accurate and effective in predicting instances from both classes.
